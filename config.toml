@@ -1,7 +1,7 @@
-baseURL = "/"   # 后面可以改成你自己的域名
+baseURL = "https://lixu-030506.github.io/"   # 后面可以改成你自己的域名
 languageCode = "zh-cn"
 title = "灵感大于语言的诗歌手册"
-theme = "m10c"
+#theme = "m10c"
 
 # 站点描述
 [params]
