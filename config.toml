@@ -7,7 +7,7 @@ theme = "m10c"
 [params]
   author = "李走走"
   description = "诗歌、散文、内省与日常碎片"
-  # avatar = "/images/avatar.jpg"     # 如果有头像可以取消注释
+  avatar = "/images/icon.jpg"     # 如果有头像可以取消注释
 
 # 主导航
 [menu]
