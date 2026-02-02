@@ -41,25 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
   elements.forEach(el => observer.observe(el));
 });
 document.addEventListener('DOMContentLoaded', function () {
-  // 搜尋功能
-  const searchToggle = document.getElementById('search-toggle');
-  const searchOverlay = document.getElementById('search-overlay');
-  const searchClose = document.getElementById('search-close');
-
-  if (searchToggle && searchOverlay) {
-    searchToggle.addEventListener('click', () => {
-      searchOverlay.classList.add('active');
-      document.getElementById('search-input').focus();
-    });
-
-    searchClose.addEventListener('click', () => {
-      searchOverlay.classList.remove('active');
-    });
-
-    searchOverlay.addEventListener('click', (e) => {
-      if (e.target === searchOverlay) searchOverlay.classList.remove('active');
-    });
-  }
 
   // 漢堡選單
   const menuToggle = document.getElementById('menu-toggle');
