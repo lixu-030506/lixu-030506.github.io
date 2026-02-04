@@ -6,6 +6,28 @@
 
   
   <link rel="stylesheet" href="/style.css">
+  <script>
+  
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+
+  
+  document.body.style.userSelect = 'none';
+  document.body.style.webkitUserSelect = 'none';
+  document.body.style.mozUserSelect = 'none';
+  document.body.style.msUserSelect = 'none';
+  </script>
+
+  <style>
+     
+    body, p, h1, h2, h3, article, .post-content, .quote-text {
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+    }
+  </style>
 </head>
 
 <div class="top-right-icons">
