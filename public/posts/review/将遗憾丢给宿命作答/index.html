@@ -6,6 +6,28 @@
 
   
   <link rel="stylesheet" href="/style.css">
+  <script>
+  
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+
+  
+  document.body.style.userSelect = 'none';
+  document.body.style.webkitUserSelect = 'none';
+  document.body.style.mozUserSelect = 'none';
+  document.body.style.msUserSelect = 'none';
+  </script>
+
+  <style>
+     
+    body, p, h1, h2, h3, article, .post-content, .quote-text {
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+    }
+  </style>
 </head>
 
 <div class="top-right-icons">
@@ -101,6 +123,8 @@
         
           <a href="/posts/review/%E7%BC%BA%E5%A4%B1%E6%9C%AA%E5%BF%85%E4%B8%8D%E6%98%AF%E6%83%85%E6%84%9F%E5%9C%86%E6%BB%A1%E7%9A%84%E4%BB%A3%E5%90%8D%E8%AF%8D/" class="prev">← 四季大雅《我想成为你的眼泪》；缺失，未必不是情感圆满的代名词</a>
         
+        
+          <a href="/posts/prose/%E7%AA%97%E5%8F%A3%E7%9A%84%E6%A7%90%E6%A0%91%E6%9E%9D/" class="next">窗口的槐树枝 →</a>
         
       </nav>
     
