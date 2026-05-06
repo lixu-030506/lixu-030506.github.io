@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,110 +12,82 @@
   <link rel="manifest" href="/images/favicon/site.webmanifest" />
   <title>周于旸《招摇过海》：将遗憾丢给宿命作答 | 灵感大于语言的诗歌手册</title>
 
-  
   <link rel="stylesheet" href="/style.css">
-  <script>
-  
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-  });
-
-  
-  document.body.style.userSelect = 'none';
-  document.body.style.webkitUserSelect = 'none';
-  document.body.style.mozUserSelect = 'none';
-  document.body.style.msUserSelect = 'none';
-  </script>
-
-  <style>
-     
-    body, p, h1, h2, h3, article, .post-content, .quote-text {
-      user-select: none !important;
-      -webkit-user-select: none !important;
-      -moz-user-select: none !important;
-      -ms-user-select: none !important;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 </head>
-
-<div class="top-right-icons">
-  
-  <a href="/index.html" class="icon home" title="回到首页" aria-label="回到首页">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-    </svg>
-  </a>
-
-  
-  <button class="icon menu" id="menu-toggle" title="菜单" aria-label="打开菜单">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-    </svg>
-  </button>
-</div>
-
-
-<nav class="mobile-menu" id="mobile-menu">
-  <button id="menu-close" class="close-btn">×</button>
-  
-    <a href="/">首页</a>
-  
-    <a href="/categories/poetry/">诗歌</a>
-  
-    <a href="/categories/prose/">散文</a>
-  
-    <a href="/categories/review/">评论</a>
-  
-    <a href="/categories/novel/">小说</a>
-  
-</nav>
 <body>
-
-<header>
-  <h1><a href="/">灵感大于语言的诗歌手册</a></h1>
   
-    <nav>
-      
-        <a href="/">首页</a>
-      
-        <a href="/categories/poetry/">诗歌</a>
-      
-        <a href="/categories/prose/">散文</a>
-      
-        <a href="/categories/review/">评论</a>
-      
-        <a href="/categories/novel/">小说</a>
-      
-    </nav>
+  <div class="custom-cursor" id="cursor"></div>
+
   
-</header>
+  <canvas id="particle-canvas"></canvas>
 
-  <main>
-    
-    <style>
-     
-    #menu-toggle {
-      display: none !important;
-    }
-  </style>
-<a href="/index.html" class="back-home">← 返回首页</a>
-  <article class="single-post">
-    
-    <h1 class="post-title">周于旸《招摇过海》：将遗憾丢给宿命作答</h1>
+  
+  <div class="top-right" id="top-controls">
+    <button class="theme-toggle" id="theme-toggle" aria-label="切换主题">
+      <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
 
-    
-    <div class="post-meta">
-      <time datetime="2026-02-01">2026 年 2 月 1 日</time>
-      <span class="categories">
+    <a href="/" class="icon-btn" title="回到首页" aria-label="回到首页">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    </a>
+
+    <button class="icon-btn" id="menu-toggle" title="菜单" aria-label="打开菜单">
+      <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    </button>
+  </div>
+
+  
+  <nav class="full-menu" id="full-menu">
+    <button class="close-btn" id="menu-close" aria-label="关闭菜单">&times;</button>
+    <a href="/">首页</a>
+    <a href="/categories/poetry/">诗歌</a>
+    <a href="/categories/prose/">散文</a>
+    <a href="/categories/review/">评论</a>
+    <a href="/categories/novel/">小说</a>
+    <a href="/about/">关于</a>
+  </nav>
+
+  
+  
+
+  
+  <div class="page-wrapper">
+    <div class="container">
+      
+      <header>
+        <h1><a href="/">灵感大于语言的诗歌手册</a></h1>
+        <nav>
+          <a href="/categories/poetry/">诗歌</a>
+          <a href="/categories/prose/">散文</a>
+          <a href="/categories/review/">评论</a>
+          <a href="/categories/novel/">小说</a>
+          <a href="/about/">关于</a>
+        </nav>
+      </header>
+      
+
+      <main>
         
-          Review ·
-        
-      </span>
-    </div>
 
-    
-    <div class="post-content">
-      <p>一篇小说吸引读者的秘诀往往不在于眼花缭乱的手法，能够勾起读者的同理心才是它能够脱颖而出的最大法宝。作者周于旸在《招摇过海》中正是通过不断穿插的宿命感，在文字中营造了一个更加真实的世界。全书分为八篇相似但不同的故事，如果以“宿命”作为依据，可以分为反抗宿命但绕不出既有结局和被宿命裹挟随波逐流两类结局。</br>
+<a href="/" class="back-link">← 返回首页</a>
+
+<article class="single-post">
+  <h1 class="post-title">周于旸《招摇过海》：将遗憾丢给宿命作答</h1>
+
+  <div class="post-meta">
+    <time datetime="2026-02-01">2026 年 2 月 1 日</time>
+    <span class="divider">·</span>
+    <span class="categories">
+      Review
+    </span>
+  </div>
+
+  <div class="post-content" id="post-content">
+    <p>一篇小说吸引读者的秘诀往往不在于眼花缭乱的手法，能够勾起读者的同理心才是它能够脱颖而出的最大法宝。作者周于旸在《招摇过海》中正是通过不断穿插的宿命感，在文字中营造了一个更加真实的世界。全书分为八篇相似但不同的故事，如果以“宿命”作为依据，可以分为反抗宿命但绕不出既有结局和被宿命裹挟随波逐流两类结局。</br>
 </br>
 在同名故事《招摇过海》中，曾传裕作为渔民的儿子，为了摆脱自己从小生活的充满鱼腥味的环境，用功考上大学的金融专业，但是就在一切看上去朝着好的方向发展的时候，由于自己的不通人情，曾传裕无法胜任大公司的财务工作，并惨遭行业封杀，最后不得已回乡当渔民。最后因为外甥恶作剧般丢在他手边的一张绘画习作，再次点燃自己打破宿命的决心，毅然丢下自己的家庭，乘船前往寻找那个心中的乌托邦。与之相似的，《退化论》中为了逃避现实社会转而成为鸟的“我”，也在成功逃离上一个宿命轮回后，落入下一个等待已久的圈套。而与前两篇不同的是，《命里有时》中的郑广延通过反复计划、多重保险维修学生送给自己的手表，看似跳出了宿命的魔咒，却因家人的缘故再入轮回。这便是同宿命抗争的一群人。</br>
 </br>
@@ -121,35 +95,37 @@
 </br>
 作者通过两种不同的对待宿命的方式，何尝不是塑造了一个完整的循环，每个抵达这里的读者总能找到跟自己共鸣的片段。同时，也体现了作者独有的哲学思维，每个个体的人生是独一无二的，却总逃不出相似共生的宿命。</p>
 
-    </div>
-
-    
-    
-      <nav class="post-navigation">
-        
-          <a href="/posts/review/%E7%BC%BA%E5%A4%B1%E6%9C%AA%E5%BF%85%E4%B8%8D%E6%98%AF%E6%83%85%E6%84%9F%E5%9C%86%E6%BB%A1%E7%9A%84%E4%BB%A3%E5%90%8D%E8%AF%8D/" class="prev">← 四季大雅《我想成为你的眼泪》；缺失，未必不是情感圆满的代名词</a>
-        
-        
-          <a href="/posts/prose/%E7%AA%97%E5%8F%A3%E7%9A%84%E6%A7%90%E6%A0%91%E6%9E%9D/" class="next">窗口的槐树枝 →</a>
-        
-      </nav>
-    
-  </article>
-
-
-  </main>
-
-    <footer>
-    <p>
-        Copyright © 2026 李走走<br>
-        生活在那时看似没有悲欢，只是将所有的节气揭下日历。<br>
-        本站所有作品均为原创，未经明确授权，禁止任何形式的转载、复制或商业使用。<br>
-        如需联系或引用，请邮件：<a href="mailto:lizouzou1213@gmail.com">lizouzou1213@gmail.com</a><br>
-        写下的都是不肯愈合的，感谢 Grok 不间断地技术协助。
-    </p>
-    </footer>
+  </div>
 
   
-  <script src="/scripts.js"></script>
+  <nav class="post-nav">
+    
+      <a href="/posts/review/%E7%BC%BA%E5%A4%B1%E6%9C%AA%E5%BF%85%E4%B8%8D%E6%98%AF%E6%83%85%E6%84%9F%E5%9C%86%E6%BB%A1%E7%9A%84%E4%BB%A3%E5%90%8D%E8%AF%8D/" class="prev">← 四季大雅《我想成为你的眼泪》；缺失，未必不是情感圆满的代名词</a>
+    
+    
+      <a href="/posts/prose/%E7%AA%97%E5%8F%A3%E7%9A%84%E6%A7%90%E6%A0%91%E6%9E%9D/" class="next">窗口的槐树枝 →</a>
+    
+  </nav>
+  
+</article>
 
+
+      </main>
+
+      <footer>
+        <p>
+          Copyright &copy; 2026 李走走<br>
+          生活在那时看似没有悲欢，只是将所有的节气揭下日历。<br>
+          本站所有作品均为原创，未经明确授权，禁止任何形式的转载、复制或商业使用。<br>
+          如需联系或引用，请邮件：<a href="mailto:lizouzou1213@gmail.com">lizouzou1213@gmail.com</a>
+        </p>
+      </footer>
+    </div>
+  </div>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="/scripts.js"></script>
 </body>
+</html>
