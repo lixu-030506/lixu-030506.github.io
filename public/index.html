@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
 <head>
 	<meta name="generator" content="Hugo 0.155.1"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
@@ -11,121 +13,82 @@
   <link rel="manifest" href="/images/favicon/site.webmanifest" />
   <title>灵感大于语言的诗歌手册</title>
 
-  
   <link rel="stylesheet" href="/style.css">
-  <script>
-  
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-  });
-
-  
-  document.body.style.userSelect = 'none';
-  document.body.style.webkitUserSelect = 'none';
-  document.body.style.mozUserSelect = 'none';
-  document.body.style.msUserSelect = 'none';
-  </script>
-
-  <style>
-     
-    body, p, h1, h2, h3, article, .post-content, .quote-text {
-      user-select: none !important;
-      -webkit-user-select: none !important;
-      -moz-user-select: none !important;
-      -ms-user-select: none !important;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 </head>
-
-<div class="top-right-icons">
+<body class="is-home">
   
-  <a href="/index.html" class="icon home" title="回到首页" aria-label="回到首页">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-    </svg>
-  </a>
+  <div class="custom-cursor" id="cursor"></div>
 
   
-  <button class="icon menu" id="menu-toggle" title="菜单" aria-label="打开菜单">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-    </svg>
-  </button>
-</div>
+  <canvas id="particle-canvas"></canvas>
 
-
-<nav class="mobile-menu" id="mobile-menu">
-  <button id="menu-close" class="close-btn">×</button>
   
+  <div class="top-right" id="top-controls">
+    <button class="theme-toggle" id="theme-toggle" aria-label="切换主题">
+      <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+
+    <a href="/" class="icon-btn" title="回到首页" aria-label="回到首页">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    </a>
+
+    <button class="icon-btn" id="menu-toggle" title="菜单" aria-label="打开菜单">
+      <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    </button>
+  </div>
+
+  
+  <nav class="full-menu" id="full-menu">
+    <button class="close-btn" id="menu-close" aria-label="关闭菜单">&times;</button>
     <a href="/">首页</a>
-  
     <a href="/categories/poetry/">诗歌</a>
-  
     <a href="/categories/prose/">散文</a>
-  
     <a href="/categories/review/">评论</a>
-  
     <a href="/categories/novel/">小说</a>
-  
-</nav>
-<body>
-
-<header>
-  <h1><a href="/">灵感大于语言的诗歌手册</a></h1>
-  
-</header>
-
-  <main>
-    
+    <a href="/about/">关于</a>
+  </nav>
 
   
-  <aside class="sidebar-left">
-    <div class="author-name">
-      李走走
+  
+  <section class="hero" id="hero">
+    <h1 class="hero-title" id="hero-title" title="试试连续点击三次">
+      
+      <span class="title-layer title-en" id="title-en">A Poetry Handbook Where Inspiration Outweighs Language</span>
+      
+      <span class="title-layer title-cn" id="title-cn">灵感大于语言的诗歌手册</span>
+    </h1>
+    <p class="hero-subtitle">诗歌 &middot; 散文 &middot; 评论 &middot; 小说</p>
+    <div class="hero-scroll">
+      <span>向下滚动</span>
+      <div class="scroll-line"></div>
     </div>
-    <div class="categories">
-      詩歌<br>
-      散文<br>
-      評論<br>
-      小説
-    </div>
-  </aside>
+  </section>
+  
 
+  
+  <div class="page-wrapper">
+    <div class="container">
+      
 
-    
-    <section class="full-screen-bg" id="intro-bg">
-    <div class="bg-layer" style="background-image: url('/images/index.jpg');"></div>
-    
-    <div class="content-overlay">
-        <div class="quote">
+      <main>
         
-        <div class="quote-decoration">
-        <span class="quote-open">「</span>
-        <p class="quote-text">
-            我把日常拆开来，<br>
-            重新拼成一首首不肯愈合的诗。
-        </p>
-        <span class="quote-close">」</span>
-        </div>
-        <p class="quote-source">
-            ——— 李走走 / 与grok的共创
-        </p>
-        </div>
-    </div>
-    </section>
 
-  
-  <h2 class="latest-title">最近的作品</h2>
 
-  
-  
+<h2 class="section-title">最近的作品</h2>
+
+
+
   
     <article class="post-item">
       <time datetime="2026-02-04">2026 年 2 月 4 日</time>
       <h3><a href="/posts/prose/%E7%AA%97%E5%8F%A3%E7%9A%84%E6%A7%90%E6%A0%91%E6%9E%9D/">窗口的槐树枝</a></h3>
       <div class="meta">
         
-          <span class="category">Prose</span>
+          <span class="category-tag">Prose</span>
         
       </div>
       <div class="summary">
@@ -138,7 +101,7 @@
       <h3><a href="/posts/review/%E9%81%97%E5%BF%98%E6%8A%8A%E6%8F%A1%E5%86%85%E5%BF%83%E6%9C%80%E6%B7%B1%E7%9A%84%E6%85%8C%E5%BC%A0/">遗忘把握内心最深的慌张 ——刘楚昕《泥潭》读后</a></h3>
       <div class="meta">
         
-          <span class="category">Review</span>
+          <span class="category-tag">Review</span>
         
       </div>
       <div class="summary">
@@ -151,7 +114,7 @@
       <h3><a href="/posts/poetry/%E8%B5%B6%E5%9C%A8%E8%90%BD%E9%9B%AA%E7%9A%84%E6%97%A5%E5%AD%90%E5%89%8D/">赶在落雪的日子前</a></h3>
       <div class="meta">
         
-          <span class="category">Poetry</span>
+          <span class="category-tag">Poetry</span>
         
       </div>
       <div class="summary">
@@ -164,7 +127,7 @@
       <h3><a href="/posts/poetry/%E7%A0%94%E7%A9%B6%E6%B7%B1%E7%A9%BA/">研究深空</a></h3>
       <div class="meta">
         
-          <span class="category">Poetry</span>
+          <span class="category-tag">Poetry</span>
         
       </div>
       <div class="summary">
@@ -177,7 +140,7 @@
       <h3><a href="/posts/poetry/%E6%9C%AC%E8%83%BD%E9%80%83%E7%A6%BB/">本能逃离</a></h3>
       <div class="meta">
         
-          <span class="category">Poetry</span>
+          <span class="category-tag">Poetry</span>
         
       </div>
       <div class="summary">
@@ -190,7 +153,7 @@
       <h3><a href="/posts/poetry/%E6%9C%88%E5%85%89%E9%87%8C%E7%9A%84%E6%B2%B9%E6%A1%83/">月光里的油桃</a></h3>
       <div class="meta">
         
-          <span class="category">Poetry</span>
+          <span class="category-tag">Poetry</span>
         
       </div>
       <div class="summary">
@@ -203,7 +166,7 @@
       <h3><a href="/posts/novel/%E6%97%A0%E6%A0%87%E9%A2%98/">无标题</a></h3>
       <div class="meta">
         
-          <span class="category">Novel</span>
+          <span class="category-tag">Novel</span>
         
       </div>
       <div class="summary">
@@ -216,7 +179,7 @@
       <h3><a href="/posts/prose/%E5%A4%8F%E6%9C%AB%E9%B9%A4%E5%9F%8E%E6%9C%89%E9%9B%A8/">夏末，鹤城有雨</a></h3>
       <div class="meta">
         
-          <span class="category">Prose</span>
+          <span class="category-tag">Prose</span>
         
       </div>
       <div class="summary">
@@ -229,7 +192,7 @@
       <h3><a href="/posts/review/%E7%BC%BA%E5%A4%B1%E6%9C%AA%E5%BF%85%E4%B8%8D%E6%98%AF%E6%83%85%E6%84%9F%E5%9C%86%E6%BB%A1%E7%9A%84%E4%BB%A3%E5%90%8D%E8%AF%8D/">四季大雅《我想成为你的眼泪》；缺失，未必不是情感圆满的代名词</a></h3>
       <div class="meta">
         
-          <span class="category">Review</span>
+          <span class="category-tag">Review</span>
         
       </div>
       <div class="summary">
@@ -242,7 +205,7 @@
       <h3><a href="/posts/review/%E5%B0%86%E9%81%97%E6%86%BE%E4%B8%A2%E7%BB%99%E5%AE%BF%E5%91%BD%E4%BD%9C%E7%AD%94/">周于旸《招摇过海》：将遗憾丢给宿命作答</a></h3>
       <div class="meta">
         
-          <span class="category">Review</span>
+          <span class="category-tag">Review</span>
         
       </div>
       <div class="summary">
@@ -252,19 +215,23 @@
   
 
 
-  </main>
 
-    <footer>
-    <p>
-        Copyright © 2026 李走走<br>
-        生活在那时看似没有悲欢，只是将所有的节气揭下日历。<br>
-        本站所有作品均为原创，未经明确授权，禁止任何形式的转载、复制或商业使用。<br>
-        如需联系或引用，请邮件：<a href="mailto:lizouzou1213@gmail.com">lizouzou1213@gmail.com</a><br>
-        写下的都是不肯愈合的，感谢 Grok 不间断地技术协助。
-    </p>
-    </footer>
+      </main>
+
+      <footer>
+        <p>
+          Copyright &copy; 2026 李走走<br>
+          生活在那时看似没有悲欢，只是将所有的节气揭下日历。<br>
+          本站所有作品均为原创，未经明确授权，禁止任何形式的转载、复制或商业使用。<br>
+          如需联系或引用，请邮件：<a href="mailto:lizouzou1213@gmail.com">lizouzou1213@gmail.com</a>
+        </p>
+      </footer>
+    </div>
+  </div>
 
   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="/scripts.js"></script>
-
 </body>
+</html>
