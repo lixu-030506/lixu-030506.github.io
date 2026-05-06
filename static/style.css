@@ -308,12 +308,16 @@ body::after {
   font-size: 1.15rem;
   color: var(--text-secondary);
   letter-spacing: 0.25em;
-  margin-bottom: 20px;
+  margin-top: 16px;
   opacity: 0;
   animation: heroFadeIn 0.8s ease 1.8s forwards;
 }
 
 .hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -321,8 +325,6 @@ body::after {
   color: var(--text-muted);
   font-size: 0.82rem;
   letter-spacing: 0.2em;
-  margin-top: auto;
-  padding-bottom: 48px;
   opacity: 0;
   animation: heroFadeIn 0.8s ease 2.2s forwards;
   z-index: 2;
