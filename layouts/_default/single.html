@@ -1,41 +1,32 @@
 {{ define "main" }}
-    <style>
-    /* 只隐藏文章页的汉堡按钮（menu-toggle） */
-    #menu-toggle {
-      display: none !important;
-    }
-  </style>
-<a href="/index.html" class="back-home">← 返回首页</a>
-  <article class="single-post">
-    <!-- 文章标题 -->
-    <h1 class="post-title">{{ .Title }}</h1>
 
-    <!-- 元信息：日期 + 分类 -->
-    <div class="post-meta">
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006 年 1 月 2 日" }}</time>
-      <span class="categories">
-        {{ range .Params.categories }}
-          {{ . | title }} ·
-        {{ end }}
-      </span>
-    </div>
+<a href="/" class="back-link">← 返回首页</a>
 
-    <!-- 正文内容 -->
-    <div class="post-content">
-      {{ .Content }}
-    </div>
+<article class="single-post{{ if in .Params.categories "poetry" }} poetry{{ end }}">
+  <h1 class="post-title">{{ .Title }}</h1>
 
-    <!-- 可选：上一篇 / 下一篇 -->
-    {{ if or .NextInSection .PrevInSection }}
-      <nav class="post-navigation">
-        {{ if .PrevInSection }}
-          <a href="{{ .PrevInSection.RelPermalink }}" class="prev">← {{ .PrevInSection.Title }}</a>
-        {{ end }}
-        {{ if .NextInSection }}
-          <a href="{{ .NextInSection.RelPermalink }}" class="next">{{ .NextInSection.Title }} →</a>
-        {{ end }}
-      </nav>
+  <div class="post-meta">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006 年 1 月 2 日" }}</time>
+    <span class="divider">·</span>
+    <span class="categories">
+      {{ range $i, $c := .Params.categories }}{{ if $i }} / {{ end }}{{ $c | title }}{{ end }}
+    </span>
+  </div>
+
+  <div class="post-content" id="post-content">
+    {{ .Content }}
+  </div>
+
+  {{ if or .NextInSection .PrevInSection }}
+  <nav class="post-nav">
+    {{ if .PrevInSection }}
+      <a href="{{ .PrevInSection.RelPermalink }}" class="prev">← {{ .PrevInSection.Title }}</a>
     {{ end }}
-  </article>
+    {{ if .NextInSection }}
+      <a href="{{ .NextInSection.RelPermalink }}" class="next">{{ .NextInSection.Title }} →</a>
+    {{ end }}
+  </nav>
+  {{ end }}
+</article>
 
 {{ end }}
