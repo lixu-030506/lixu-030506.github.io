@@ -64,6 +64,10 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
   cursor: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* 纸张纹理 */
@@ -316,8 +320,8 @@ body::after {
 .hero-scroll {
   position: absolute;
   bottom: 40px;
-  left: 50%;
-  margin-left: -40px;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -325,7 +329,6 @@ body::after {
   color: var(--text-muted);
   font-size: 0.82rem;
   letter-spacing: 0.2em;
-  width: 80px;
   opacity: 0;
   animation: heroFadeIn 0.8s ease 2.2s forwards;
   z-index: 2;
