@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,129 +12,143 @@
   <link rel="manifest" href="/images/favicon/site.webmanifest" />
   <title>Poetry | 灵感大于语言的诗歌手册</title>
 
-  
   <link rel="stylesheet" href="/style.css">
-  <script>
-  
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-  });
-
-  
-  document.body.style.userSelect = 'none';
-  document.body.style.webkitUserSelect = 'none';
-  document.body.style.mozUserSelect = 'none';
-  document.body.style.msUserSelect = 'none';
-  </script>
-
-  <style>
-     
-    body, p, h1, h2, h3, article, .post-content, .quote-text {
-      user-select: none !important;
-      -webkit-user-select: none !important;
-      -moz-user-select: none !important;
-      -ms-user-select: none !important;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 </head>
-
-<div class="top-right-icons">
+<body>
   
-  <a href="/index.html" class="icon home" title="回到首页" aria-label="回到首页">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-    </svg>
-  </a>
+  <div class="custom-cursor" id="cursor"></div>
 
   
-  <button class="icon menu" id="menu-toggle" title="菜单" aria-label="打开菜单">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-    </svg>
-  </button>
+  <canvas id="particle-canvas"></canvas>
+
+  
+  <div class="top-right" id="top-controls">
+    <button class="theme-toggle" id="theme-toggle" aria-label="切换主题">
+      <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+
+    <a href="/" class="icon-btn" title="回到首页" aria-label="回到首页">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    </a>
+
+    <button class="icon-btn" id="menu-toggle" title="菜单" aria-label="打开菜单">
+      <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    </button>
+  </div>
+
+  
+  <nav class="full-menu" id="full-menu">
+    <button class="close-btn" id="menu-close" aria-label="关闭菜单">&times;</button>
+    <a href="/">首页</a>
+    <a href="/categories/poetry/">诗歌</a>
+    <a href="/categories/prose/">散文</a>
+    <a href="/categories/review/">评论</a>
+    <a href="/categories/novel/">小说</a>
+    <a href="/about/">关于</a>
+  </nav>
+
+  
+  
+
+  
+  <div class="page-wrapper">
+    <div class="container">
+      
+      <header>
+        <h1><a href="/">灵感大于语言的诗歌手册</a></h1>
+        <nav>
+          <a href="/categories/poetry/">诗歌</a>
+          <a href="/categories/prose/">散文</a>
+          <a href="/categories/review/">评论</a>
+          <a href="/categories/novel/">小说</a>
+          <a href="/about/">关于</a>
+        </nav>
+      </header>
+      
+
+      <main>
+        
+
+<div class="category-header">
+  <h1>Poetry</h1>
+  <p class="category-count">共 4 篇作品</p>
 </div>
 
 
-<nav class="mobile-menu" id="mobile-menu">
-  <button id="menu-close" class="close-btn">×</button>
-  
-    <a href="/">首页</a>
-  
-    <a href="/categories/poetry/">诗歌</a>
-  
-    <a href="/categories/prose/">散文</a>
-  
-    <a href="/categories/review/">评论</a>
-  
-    <a href="/categories/novel/">小说</a>
-  
-</nav>
-<body>
+  <article class="post-item">
+    <time datetime="2026-02-01">2026 年 2 月 1 日</time>
+    <h3><a href="/posts/poetry/%E8%B5%B6%E5%9C%A8%E8%90%BD%E9%9B%AA%E7%9A%84%E6%97%A5%E5%AD%90%E5%89%8D/">赶在落雪的日子前</a></h3>
+    <div class="meta">
+      
+        <span class="category-tag">Poetry</span>
+      
+    </div>
+    <div class="summary">
+      忽地想起某件极其重要的事情 在横渡群山的异乡土地上急躁 有种离开时候的匆忙作祟 像是怀疑家中烧着的燃炉未灭 从前破碎的窗棱冒着风 放进半片落雪，沿发烫的外壳起舞 从前的日子里能归家 赶在每一场风雪来临之前 把窗子连同遍布的缝隙落锁 倚在雪夜 ……
+    </div>
+  </article>
 
-<header>
-  <h1><a href="/">灵感大于语言的诗歌手册</a></h1>
-  
-    <nav>
+  <article class="post-item">
+    <time datetime="2026-02-01">2026 年 2 月 1 日</time>
+    <h3><a href="/posts/poetry/%E7%A0%94%E7%A9%B6%E6%B7%B1%E7%A9%BA/">研究深空</a></h3>
+    <div class="meta">
       
-        <a href="/">首页</a>
+        <span class="category-tag">Poetry</span>
       
-        <a href="/categories/poetry/">诗歌</a>
-      
-        <a href="/categories/prose/">散文</a>
-      
-        <a href="/categories/review/">评论</a>
-      
-        <a href="/categories/novel/">小说</a>
-      
-    </nav>
-  
-</header>
+    </div>
+    <div class="summary">
+      深空五色，映月拾光 过往着光年刻画岁月流逝 长焦距的摄像机架起 千分之一范围内星空拓印在 同深蓝色调的油画一道 被研究，订上展厅和聚光灯 在想象展开的千禧年里 远古先贤向往天神 分批次发射中继站，如今 隔着太空钢陨石上写满 ——晦涩难懂的化 ……
+    </div>
+  </article>
 
-  <main>
-    
-  <h1 class="category-title">Poetry</h1>
+  <article class="post-item">
+    <time datetime="2026-02-01">2026 年 2 月 1 日</time>
+    <h3><a href="/posts/poetry/%E6%9C%AC%E8%83%BD%E9%80%83%E7%A6%BB/">本能逃离</a></h3>
+    <div class="meta">
+      
+        <span class="category-tag">Poetry</span>
+      
+    </div>
+    <div class="summary">
+      逃离是件怪事，繁琐 同不论何时的大自然作对 我，钢丝床、席梦思 钢圈弹簧融进末端的神经恐惧 血涔涔的，沸腾在抗不住的日光里 遮住双目晃得发白 闪光点，深入 划在韧性十足的骨膜上 挣破——恍如黑夜 滚沸的血染着余温 沿着下一摊锈迹更重 我，是 ……
+    </div>
+  </article>
 
-  <div class="post-list">
-    
-      <article class="post-item">
-        <time>2026 年 2 月 1 日</time>
-        <h2><a href="/posts/poetry/%E8%B5%B6%E5%9C%A8%E8%90%BD%E9%9B%AA%E7%9A%84%E6%97%A5%E5%AD%90%E5%89%8D/">赶在落雪的日子前</a></h2>
-        <p class="summary">忽地想起某件极其重要的事情 在横渡群山的异乡土地上急躁 有种离开时候的匆忙作祟 像是怀疑家中烧着的燃炉未灭 从前破碎的窗棱冒着风 放进半片落雪，沿发烫的外壳起舞 从前的日子里能归家 赶在每一场风雪来临 ……</p>
-      </article>
-    
-      <article class="post-item">
-        <time>2026 年 2 月 1 日</time>
-        <h2><a href="/posts/poetry/%E7%A0%94%E7%A9%B6%E6%B7%B1%E7%A9%BA/">研究深空</a></h2>
-        <p class="summary">深空五色，映月拾光 过往着光年刻画岁月流逝 长焦距的摄像机架起 千分之一范围内星空拓印在 同深蓝色调的油画一道 被研究，订上展厅和聚光灯 在想象展开的千禧年里 远古先贤向往天神 分批次发射中继站，如今 ……</p>
-      </article>
-    
-      <article class="post-item">
-        <time>2026 年 2 月 1 日</time>
-        <h2><a href="/posts/poetry/%E6%9C%AC%E8%83%BD%E9%80%83%E7%A6%BB/">本能逃离</a></h2>
-        <p class="summary">逃离是件怪事，繁琐 同不论何时的大自然作对 我，钢丝床、席梦思 钢圈弹簧融进末端的神经恐惧 血涔涔的，沸腾在抗不住的日光里 遮住双目晃得发白 闪光点，深入 划在韧性十足的骨膜上 挣破——恍如黑夜 滚沸 ……</p>
-      </article>
-    
-      <article class="post-item">
-        <time>2026 年 2 月 1 日</time>
-        <h2><a href="/posts/poetry/%E6%9C%88%E5%85%89%E9%87%8C%E7%9A%84%E6%B2%B9%E6%A1%83/">月光里的油桃</a></h2>
-        <p class="summary">祖母的油桃在雨中 在沉睡的夜里堪堪醒来 挟持，神秘力道穿起松软的脊椎 祖母的油桃挂在窗外的树上 通体艳丽，红的滴油 抹一把惺忪睡眼，倚上夏夜的窗棂 祖母的桃更油了 依然在树上，月光流满枝干 难得的，七 ……</p>
-      </article>
-    
+  <article class="post-item">
+    <time datetime="2026-02-01">2026 年 2 月 1 日</time>
+    <h3><a href="/posts/poetry/%E6%9C%88%E5%85%89%E9%87%8C%E7%9A%84%E6%B2%B9%E6%A1%83/">月光里的油桃</a></h3>
+    <div class="meta">
+      
+        <span class="category-tag">Poetry</span>
+      
+    </div>
+    <div class="summary">
+      祖母的油桃在雨中 在沉睡的夜里堪堪醒来 挟持，神秘力道穿起松软的脊椎 祖母的油桃挂在窗外的树上 通体艳丽，红的滴油 抹一把惺忪睡眼，倚上夏夜的窗棂 祖母的桃更油了 依然在树上，月光流满枝干 难得的，七月的夏路过凉意 浓烈醇香勾起 沿途油灯的 ……
+    </div>
+  </article>
+
+
+
+      </main>
+
+      <footer>
+        <p>
+          Copyright &copy; 2026 李走走<br>
+          生活在那时看似没有悲欢，只是将所有的节气揭下日历。<br>
+          本站所有作品均为原创，未经明确授权，禁止任何形式的转载、复制或商业使用。<br>
+          如需联系或引用，请邮件：<a href="mailto:lizouzou1213@gmail.com">lizouzou1213@gmail.com</a>
+        </p>
+      </footer>
+    </div>
   </div>
 
-  </main>
-
-    <footer>
-    <p>
-        Copyright © 2026 李走走<br>
-        生活在那时看似没有悲欢，只是将所有的节气揭下日历。<br>
-        本站所有作品均为原创，未经明确授权，禁止任何形式的转载、复制或商业使用。<br>
-        如需联系或引用，请邮件：<a href="mailto:lizouzou1213@gmail.com">lizouzou1213@gmail.com</a><br>
-        写下的都是不肯愈合的，感谢 Grok 不间断地技术协助。
-    </p>
-    </footer>
-
   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="/scripts.js"></script>
-
 </body>
+</html>
