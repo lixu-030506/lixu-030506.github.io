@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,110 +12,82 @@
   <link rel="manifest" href="/images/favicon/site.webmanifest" />
   <title>本能逃离 | 灵感大于语言的诗歌手册</title>
 
-  
   <link rel="stylesheet" href="/style.css">
-  <script>
-  
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-  });
-
-  
-  document.body.style.userSelect = 'none';
-  document.body.style.webkitUserSelect = 'none';
-  document.body.style.mozUserSelect = 'none';
-  document.body.style.msUserSelect = 'none';
-  </script>
-
-  <style>
-     
-    body, p, h1, h2, h3, article, .post-content, .quote-text {
-      user-select: none !important;
-      -webkit-user-select: none !important;
-      -moz-user-select: none !important;
-      -ms-user-select: none !important;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 </head>
-
-<div class="top-right-icons">
-  
-  <a href="/index.html" class="icon home" title="回到首页" aria-label="回到首页">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-    </svg>
-  </a>
-
-  
-  <button class="icon menu" id="menu-toggle" title="菜单" aria-label="打开菜单">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-    </svg>
-  </button>
-</div>
-
-
-<nav class="mobile-menu" id="mobile-menu">
-  <button id="menu-close" class="close-btn">×</button>
-  
-    <a href="/">首页</a>
-  
-    <a href="/categories/poetry/">诗歌</a>
-  
-    <a href="/categories/prose/">散文</a>
-  
-    <a href="/categories/review/">评论</a>
-  
-    <a href="/categories/novel/">小说</a>
-  
-</nav>
 <body>
-
-<header>
-  <h1><a href="/">灵感大于语言的诗歌手册</a></h1>
   
-    <nav>
-      
-        <a href="/">首页</a>
-      
-        <a href="/categories/poetry/">诗歌</a>
-      
-        <a href="/categories/prose/">散文</a>
-      
-        <a href="/categories/review/">评论</a>
-      
-        <a href="/categories/novel/">小说</a>
-      
-    </nav>
+  <div class="custom-cursor" id="cursor"></div>
+
   
-</header>
+  <canvas id="particle-canvas"></canvas>
 
-  <main>
-    
-    <style>
-     
-    #menu-toggle {
-      display: none !important;
-    }
-  </style>
-<a href="/index.html" class="back-home">← 返回首页</a>
-  <article class="single-post">
-    
-    <h1 class="post-title">本能逃离</h1>
+  
+  <div class="top-right" id="top-controls">
+    <button class="theme-toggle" id="theme-toggle" aria-label="切换主题">
+      <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
 
-    
-    <div class="post-meta">
-      <time datetime="2026-02-01">2026 年 2 月 1 日</time>
-      <span class="categories">
+    <a href="/" class="icon-btn" title="回到首页" aria-label="回到首页">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    </a>
+
+    <button class="icon-btn" id="menu-toggle" title="菜单" aria-label="打开菜单">
+      <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    </button>
+  </div>
+
+  
+  <nav class="full-menu" id="full-menu">
+    <button class="close-btn" id="menu-close" aria-label="关闭菜单">&times;</button>
+    <a href="/">首页</a>
+    <a href="/categories/poetry/">诗歌</a>
+    <a href="/categories/prose/">散文</a>
+    <a href="/categories/review/">评论</a>
+    <a href="/categories/novel/">小说</a>
+    <a href="/about/">关于</a>
+  </nav>
+
+  
+  
+
+  
+  <div class="page-wrapper">
+    <div class="container">
+      
+      <header>
+        <h1><a href="/">灵感大于语言的诗歌手册</a></h1>
+        <nav>
+          <a href="/categories/poetry/">诗歌</a>
+          <a href="/categories/prose/">散文</a>
+          <a href="/categories/review/">评论</a>
+          <a href="/categories/novel/">小说</a>
+          <a href="/about/">关于</a>
+        </nav>
+      </header>
+      
+
+      <main>
         
-          Poetry ·
-        
-      </span>
-    </div>
 
-    
-    <div class="post-content">
-      <p>逃离是件怪事，繁琐</br>
+<a href="/" class="back-link">← 返回首页</a>
+
+<article class="single-post poetry">
+  <h1 class="post-title">本能逃离</h1>
+
+  <div class="post-meta">
+    <time datetime="2026-02-01">2026 年 2 月 1 日</time>
+    <span class="divider">·</span>
+    <span class="categories">
+      Poetry
+    </span>
+  </div>
+
+  <div class="post-content" id="post-content">
+    <p>逃离是件怪事，繁琐</br>
 同不论何时的大自然作对</br>
 我，钢丝床、席梦思</br>
 钢圈弹簧融进末端的神经恐惧</br>
@@ -135,35 +109,37 @@
 </br>
 （首发《创世纪诗刊》2024年3月春季号）</p>
 
-    </div>
-
-    
-    
-      <nav class="post-navigation">
-        
-          <a href="/posts/poetry/%E7%A0%94%E7%A9%B6%E6%B7%B1%E7%A9%BA/" class="prev">← 研究深空</a>
-        
-        
-          <a href="/posts/poetry/%E6%9C%88%E5%85%89%E9%87%8C%E7%9A%84%E6%B2%B9%E6%A1%83/" class="next">月光里的油桃 →</a>
-        
-      </nav>
-    
-  </article>
-
-
-  </main>
-
-    <footer>
-    <p>
-        Copyright © 2026 李走走<br>
-        生活在那时看似没有悲欢，只是将所有的节气揭下日历。<br>
-        本站所有作品均为原创，未经明确授权，禁止任何形式的转载、复制或商业使用。<br>
-        如需联系或引用，请邮件：<a href="mailto:lizouzou1213@gmail.com">lizouzou1213@gmail.com</a><br>
-        写下的都是不肯愈合的，感谢 Grok 不间断地技术协助。
-    </p>
-    </footer>
+  </div>
 
   
-  <script src="/scripts.js"></script>
+  <nav class="post-nav">
+    
+      <a href="/posts/poetry/%E7%A0%94%E7%A9%B6%E6%B7%B1%E7%A9%BA/" class="prev">← 研究深空</a>
+    
+    
+      <a href="/posts/poetry/%E6%9C%88%E5%85%89%E9%87%8C%E7%9A%84%E6%B2%B9%E6%A1%83/" class="next">月光里的油桃 →</a>
+    
+  </nav>
+  
+</article>
 
+
+      </main>
+
+      <footer>
+        <p>
+          Copyright &copy; 2026 李走走<br>
+          生活在那时看似没有悲欢，只是将所有的节气揭下日历。<br>
+          本站所有作品均为原创，未经明确授权，禁止任何形式的转载、复制或商业使用。<br>
+          如需联系或引用，请邮件：<a href="mailto:lizouzou1213@gmail.com">lizouzou1213@gmail.com</a>
+        </p>
+      </footer>
+    </div>
+  </div>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="/scripts.js"></script>
 </body>
+</html>
