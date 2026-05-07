@@ -12,6 +12,18 @@
   <link rel="manifest" href="/images/favicon/site.webmanifest" />
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 
+  <!-- Open Graph / 微信分享卡片 -->
+  <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
+  <meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | plainify | truncate 150 }}{{ end }}" />
+  <meta property="og:image" content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ "/images/icon.jpg" | absURL }}{{ end }}" />
+  <meta property="og:site_name" content="{{ .Site.Title }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
+  <meta name="twitter:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | plainify | truncate 150 }}{{ end }}" />
+  <meta name="twitter:image" content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ "/images/icon.jpg" | absURL }}{{ end }}" />
+
   <link rel="stylesheet" href="/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
