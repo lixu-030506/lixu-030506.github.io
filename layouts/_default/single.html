@@ -3,9 +3,13 @@
 <a href="/" class="back-link">← 返回首页</a>
 
 <article class="single-post{{ if in .Params.categories "poetry" }} poetry{{ end }}">
-  <h1 class="post-title">{{ .Title }}</h1>
+<h1 class="post-title">{{ .Title }}</h1>
 
-  <div class="post-meta">
+{{ if .Params.subtitle }}
+<p class="post-subtitle">{{ .Params.subtitle }}</p>
+{{ end }}
+
+<div class="post-meta">
     <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006 年 1 月 2 日" }}</time>
     <span class="divider">·</span>
     <span class="categories">
