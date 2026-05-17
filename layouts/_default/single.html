@@ -9,13 +9,24 @@
 <p class="post-subtitle">{{ .Params.subtitle }}</p>
 {{ end }}
 
-<div class="post-meta">
+  <div class="post-meta">
     <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006 年 1 月 2 日" }}</time>
     <span class="divider">·</span>
     <span class="categories">
       {{ range $i, $c := .Params.categories }}{{ if $i }} / {{ end }}{{ $c | title }}{{ end }}
     </span>
   </div>
+
+  {{ if .Params.source }}
+  <div class="source-link">
+    <span class="source-label">原文</span>
+    {{ if .Params.source_url }}
+      <a href="{{ .Params.source_url }}" target="_blank" rel="noopener noreferrer">{{ .Params.source }}</a>
+    {{ else }}
+      <span class="source-name">{{ .Params.source }}</span>
+    {{ end }}
+  </div>
+  {{ end }}
 
   <div class="post-content" id="post-content">
     {{ .Content }}
